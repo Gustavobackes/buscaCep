@@ -6,21 +6,21 @@ let ibge = document.querySelector("#ibge") as HTMLElement;
 
 function limpa_formulario_cep() {
   //Limpa valores do formulario de cep.
-  rua.innerHTML = "";
-  bairro.innerHTML = "";
-  cidade.innerHTML = "";
-  uf.innerHTML = "";
-  ibge.innerHTML = "";
+  rua.value = "";
+  bairro.value = "";
+  cidade.value = "";
+  uf.value = "";
+  ibge.value = "";
 }
 
 function meu_callback(conteudo: any) {
   if (!("erro" in conteudo)) {
     //Atualiza os campos com os valores.
-    rua = conteudo.logradouro;
-    bairro = conteudo.bairro;
-    cidade = conteudo.localidade;
-    uf = conteudo.uf;
-    ibge = conteudo.ibge;
+    rua.value = conteudo.logradouro;
+    bairro.value = conteudo.bairro;
+    cidade.value = conteudo.localidade;
+    uf.value = conteudo.uf;
+    ibge.value = conteudo.ibge;
   } //end if.
   else {
     //CEP nao Encontrado.
@@ -41,11 +41,11 @@ function pesquisacep(valor: string) {
     //Valida o formato do CEP.
     if (validacep.test(cep)) {
       //Preenche os campos com "..." enquanto consulta webservice.
-      rua.innerHTML = "...";
-      bairro.innerHTML = "...";
-      cidade.innerHTML = "...";
-      uf.innerHTML = "...";
-      ibge.innerHTML = "...";
+      rua.value = "...";
+      bairro.value = "...";
+      cidade.value = "...";
+      uf.value = "...";
+      ibge.value = "...";
 
       //Cria um elemento javascript.
       var script = document.createElement("script");
